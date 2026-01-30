@@ -19,7 +19,7 @@ body {
   background: rgba(255,255,255,0.95);
   padding: 30px 25px;
   border-radius: 15px;
-  max-width: 550px;
+  max-width: 600px;
   width: 100%;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   text-align: center;
@@ -58,38 +58,52 @@ footer { color: #777; font-size: 13px; margin-top: 20px; }
   <p>نرحب بكل من يؤمن بأن المبادرة تصنع الأثر. يرجى ملء الاستمارة بدقة وسيتم التواصل مع المقبولين لاحقًا.</p>
 
   <form id="استمارة_الفريق">
+    <!-- المعلومات الشخصية -->
     <input type="text" name="الاسم_الكامل" placeholder="الاسم الكامل" required>
-    <input type="text" name="اسم_الأم" placeholder="اسم الأم" required>
-    <select name="الجنس" required>
-      <option value="">اختر الجنس</option>
-      <option value="ذكر">ذكر</option>
-      <option value="أنثى">أنثى</option>
-    </select>
+    <input type="number" name="العمر" placeholder="العمر" required>
     <input type="tel" name="رقم_الهاتف" placeholder="رقم الهاتف" required>
-    <select name="نوع_الدراسة" required>
-      <option value="">اختر نوع الدراسة</option>
+    <input type="text" name="السكن" placeholder="السكن" required>
+    <input type="text" name="المحافظة" placeholder="المحافظة" required>
+    <input type="text" name="القضاء" placeholder="القضاء" required>
+    <input type="text" name="الضيف" placeholder="الضيف" required>
+
+    <!-- المعلومات المهنية -->
+    <select name="نوع_العمل" required>
+      <option value="">نوع العمل</option>
+      <option value="موظف">موظف</option>
+      <option value="عاطل عن العمل">عاطل عن العمل</option>
       <option value="طالب">طالب</option>
       <option value="خريج">خريج</option>
     </select>
-    <textarea name="تفاصيل" placeholder="تفاصيل إضافية" required></textarea>
+
+    <select name="نوع_الدراسة" required>
+      <option value="">نوع الدراسة</option>
+      <option value="طالب">طالب</option>
+      <option value="خريج">خريج</option>
+    </select>
+
+    <input type="text" name="الكلية_المعهد" placeholder="الكلية أو المعهد">
+    <input type="text" name="القسم" placeholder="القسم">
+    <input type="text" name="التخصص" placeholder="التخصص">
+
+    <!-- التطوع -->
     <select name="متطوع_سابق" required>
       <option value="">هل كنت متطوع سابقًا؟</option>
       <option value="نعم">نعم</option>
       <option value="لا">لا</option>
     </select>
+    <input type="text" name="اين_تطوعت" placeholder="إذا نعم، أين تطوعت">
+
     <select name="مدة_التطوع" required>
       <option value="">مدة التطوع التي ترغب بها</option>
       <option value="يوم واحد">يوم واحد</option>
-      <option value="يومين في الأسبوع">يومين في الأسبوع</option>
+      <option value="يومان في الأسبوع">يومان في الأسبوع</option>
       <option value="على مدار">على مدار</option>
     </select>
+
+    <!-- التواصل -->
     <input type="text" name="التواصل" placeholder="البريد أو الهاتف للتواصل" required>
-    <select name="نوع_العمل" required>
-      <option value="">نوع العمل</option>
-      <option value="طالب">طالب</option>
-      <option value="موظف">موظف</option>
-      <option value="عاطل عن العمل">عاطل عن العمل</option>
-    </select>
+
     <button type="submit" class="btn-submit">تسجيل الآن</button>
   </form>
 
@@ -101,9 +115,22 @@ const form = document.getElementById('استمارة_الفريق');
 form.addEventListener('submit', e => {
   e.preventDefault();
   const data = new FormData(form);
-  fetch("https://script.google.com/macros/s/AKfycbwYTLooAgPmxjFFoqThKMQks7Knf3Sqw31tC7hWloifEhBe2WyO4egIXq5XkDNcyuU2cg/exec", {
+
+  fetch("PUT_YOUR_WEB_APP_LINK_HERE", {"https://script.google.com/macros/s/AKfycbwG_YocppPbZMDkQ3pvIPpNrdYT1nd7mnTfhcFGi5vE5INaqhIo1eIUknliSZSnDI1T6Q/exec"
     method: "POST",
     body: data
+  })
+  .then(res => res.text())
+  .then(response => {
+    alert(response);
+    form.reset();
+  })
+  .catch(err => alert("حصل خطأ، حاول لاحقاً."));
+});
+</script>
+
+</body>
+</html>    body: data
   })
   .then(res => res.text())
   .then(response => {
