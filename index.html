@@ -6,55 +6,49 @@
 <title>تسجيل التطوع – فريق أثر كيميائي</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  body {
-    margin: 0;
-    font-family: 'Cairo', Tahoma, Arial, sans-serif;
-    background: linear-gradient(to bottom right, #1e3a5f, #2c7a7b);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .container {
-    background: rgba(255,255,255,0.95);
-    padding: 30px 25px;
-    border-radius: 15px;
-    max-width: 550px;
-    width: 100%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    text-align: center;
-  }
-
-  h1 { color: #1e3a5f; margin-bottom: 10px; font-size: 26px; }
-  p { color: #555; line-height: 1.6; font-size: 15px; margin-bottom: 25px; }
-
-  input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 15px;
-    box-sizing: border-box;
-  }
-
-  textarea { resize: vertical; min-height: 80px; }
-
-  .btn-submit {
-    background: #2c7a7b;
-    color: #fff;
-    padding: 14px 0;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-    transition: 0.3s;
-  }
-  .btn-submit:hover { background: #1e5a5c; }
-
-  footer { color: #777; font-size: 13px; margin-top: 20px; }
+body {
+  margin: 0;
+  font-family: 'Cairo', Tahoma, Arial, sans-serif;
+  background: linear-gradient(to bottom right, #1e3a5f, #2c7a7b);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  background: rgba(255,255,255,0.95);
+  padding: 30px 25px;
+  border-radius: 15px;
+  max-width: 550px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-align: center;
+}
+h1 { color: #1e3a5f; margin-bottom: 10px; font-size: 26px; }
+p { color: #555; line-height: 1.6; font-size: 15px; margin-bottom: 25px; }
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+textarea { resize: vertical; min-height: 80px; }
+.btn-submit {
+  background: #2c7a7b;
+  color: #fff;
+  padding: 14px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+}
+.btn-submit:hover { background: #1e5a5c; }
+footer { color: #777; font-size: 13px; margin-top: 20px; }
 </style>
 </head>
 <body>
@@ -113,39 +107,11 @@ form.addEventListener('submit', e => {
   })
   .then(res => res.text())
   .then(response => {
-    alert(response); // رسالة نجاح
-    form.reset();     // تفريغ الاستمارة بعد الإرسال
+    alert(response);
+    form.reset();
   })
   .catch(err => alert("حصل خطأ، حاول لاحقاً."));
 });
-</script>
-
-</body>
-</html>      form.reset();
-    })
-    .catch(err => alert("حصل خطأ، حاول لاحقاً."));
-  });
-</script>
-
-</body>
-</html>      form.reset();
-    })
-    .catch(err => alert("حصل خطأ، حاول لاحقاً."));
-  });
-</script>
-
-</body>
-</html>      form.reset();
-    })
-    .catch(err => alert("حصل خطأ، حاول لاحقاً."));
-  });
-</script>
-
-</body>
-</html>      form.reset();
-    })
-    .catch(err => alert("حصل خطأ، حاول لاحقاً."));
-  });
 </script>
 
 </body>
