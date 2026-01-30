@@ -1,248 +1,113 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>فريق أثر كيميائي – تسجيل التطوع</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل التطوع – فريق أثر كيميائي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Cairo', Tahoma, Arial, sans-serif;
+    background: linear-gradient(to bottom right, #1e3a5f, #2c7a7b);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', Tahoma, Arial, sans-serif;
-      background: linear-gradient(to bottom right, #1e3a5f, #2c7a7b);
-      min-height: 100vh;
-    }
+  .container {
+    background: rgba(255,255,255,0.95);
+    padding: 30px 25px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+  }
 
-    .overlay {
-      background: rgba(255,255,255,0.15);
-      min-height: 100vh;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      border-radius: 12px;
-      max-width: 900px;
-      margin: auto;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-    }
+  h1 {
+    color: #1e3a5f;
+    margin-bottom: 15px;
+    font-size: 26px;
+  }
 
-    .logo { max-width: 160px; margin-bottom: 25px; }
+  p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
 
-    h1 { color: #fff; font-size: 28px; margin-bottom: 20px; }
-    h2 { color: #d0f0f0; margin-top: 25px; margin-bottom: 12px; font-size: 22px; }
+  input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    box-sizing: border-box;
+  }
 
-    p { color: #f0f0f0; font-size: 16px; line-height: 1.8; max-width: 800px; margin: 8px auto; text-align: right; }
+  textarea { resize: vertical; min-height: 80px; }
 
-    form {
-      background: rgba(255,255,255,0.95);
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      width: 100%;
-      max-width: 700px;
-      margin-top: 25px;
-      color: #333;
-    }
+  .btn-submit {
+    background: #2c7a7b;
+    color: #fff;
+    padding: 14px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+  }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 15px;
-      box-sizing: border-box;
-    }
+  .btn-submit:hover { background: #1e5a5c; }
 
-    textarea { resize: vertical; min-height: 80px; }
-
-    .btn-submit {
-      background: #2c7a7b;
-      color: #fff;
-      padding: 14px 28px;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-      width: 100%;
-      margin-top: 15px;
-    }
-
-    .btn-submit:hover { background: #1e5a5c; }
-
-    footer { color: #ccc; font-size: 13px; margin-top: 40px; text-align: center; }
-
-    @media(max-width:600px){
-      h1{font-size:24px;} h2{font-size:20px;}
-    }
-  </style>
+  footer { color: #777; font-size: 13px; margin-top: 20px; }
+</style>
 </head>
-
 <body>
-  <div class="overlay">
-    <img src="ph.png" class="logo" alt="شعار الفريق">
-    <h1>تسجيل التطوع في فريق أثر كيميائي</h1>
 
-    <p>
-      نرحب بكل من يؤمن بأن المبادرة تصنع الأثر. يرجى ملء الاستمارة بدقة وسيتم التواصل مع المقبولين لاحقًا.
-    </p>
+<div class="container">
+  <h1>تسجيل التطوع – فريق أثر كيميائي</h1>
+  <p>نرحب بكل من يؤمن بأن المبادرة تصنع الأثر. يرجى ملء الاستمارة بدقة وسيتم التواصل مع المقبولين لاحقًا.</p>
 
-    <form id="volunteerForm">
-      <input type="text" name="fullName" placeholder="الاسم الكامل" required>
-      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-      <input type="tel" name="phone" placeholder="رقم الهاتف" required>
-      <select name="ageGroup" required>
-        <option value="">اختر الفئة العمرية</option>
-        <option value="18-25">18-25</option>
-        <option value="26-35">26-35</option>
-        <option value="36-50">36-50</option>
-      </select>
-      <textarea name="experience" placeholder="خبرات أو مهارات ترغب بالمساهمة بها" required></textarea>
+  <form id="استمارة_الفريق">
+    <input type="text" name="الاسم_الكامل" placeholder="الاسم الكامل" required>
+    <input type="email" name="البريد_الإلكتروني" placeholder="البريد الإلكتروني" required>
+    <input type="tel" name="رقم_الهاتف" placeholder="رقم الهاتف" required>
+    <select name="الفئة_العمرية" required>
+      <option value="">اختر الفئة العمرية</option>
+      <option value="18-25">18-25</option>
+      <option value="26-35">26-35</option>
+      <option value="36-50">36-50</option>
+    </select>
+    <textarea name="الخبرات" placeholder="خبرات أو مهارات ترغب بالمساهمة بها" required></textarea>
+    <button type="submit" class="btn-submit">تسجيل الآن</button>
+  </form>
 
-      <button type="submit" class="btn-submit">تسجيل الآن</button>
-    </form>
+  <footer>© فريق أثر كيميائي – محافظة ديالى</footer>
+</div>
 
-    <footer>
-      © فريق أثر كيميائي – محافظة ديالى
-    </footer>
-  </div>
+<script>
+  const form = document.getElementById('استمارة_الفريق');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch("https://script.google.com/macros/s/AKfycbyh-1KbN1sgwXdX145febQxjrh5gpSTGUufg5R0hMCtTOUvZyNkA0GXwv0QLLaVY8lG/exec", {
+      method: "POST",
+      body: data
+    })
+    .then(res => res.text())
+    .then(response => {
+      alert(response);
+      form.reset();
+    })
+    .catch(err => alert("حصل خطأ، حاول لاحقاً."));
+  });
+</script>
 
-  <script>
-    document.getElementById('volunteerForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      alert("تم إرسال الاستمارة بنجاح! سيتم التواصل معكم قريباً.");
-      this.reset();
-    });
-  </script>
-</body>
-</html>    <!-- شعار الفريق -->
-    <img src="ph.png" class="logo" alt="شعار فريق أثر كيميائي">
-
-    <!-- العنوان الرئيسي -->
-    <h1>مرحبا بكم في فريق أثر كيميائي التطوعي</h1>
-
-    <!-- مقدمة الفريق -->
-    <p>
-      إيمانًا بأن العطاء مسؤولية، وبأن المبادرة تصنع الفرق، وبأن الأثر لا يُقاس بالكلمات بل بالأفعال.  
-      السلام عليكم ورحمة الله وبركاته،  
-      يسرّنا ويشرّفنا أن نخطو مع حضراتكم خطوةً نحو صناعة أثر حقيقي، من خلال تأسيس فريق تطوعي يؤمن بأن خدمة المجتمع ليست خيارًا مؤجلًا، بل واجبًا حاضرًا، وبأن العمل الجماعي هو الطريق الأقصر للتغيير والبناء.
-    </p>
-
-    <p>
-      وقد رسم لنا الله تعالى منهج التعاون بقوله:  
-      <strong>﴿وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ﴾</strong>،  
-      وأكد رسول الله ﷺ هذا المعنى بقوله:  
-      <em>«أَحَبُّ النَّاسِ إِلَى اللَّهِ أَنْفَعُهُمْ لِلنَّاسِ»</em>.
-    </p>
-
-    <p>
-      وانطلاقًا من هذا الإيمان العميق، جاءت فكرة هذا الفريق التطوعي ليكون مساحةً للعطاء، ومنصةً للمبادرة، وصوتًا يُوقظ الهمم، ويحوّل الطاقات إلى أفعال، والأفكار إلى واقع ملموس، دعمًا للطاقات الشابة، وخدمةً للمجتمع بكل فئاته، وإسهامًا في بناء محافظتنا العزيزة ديالى وبناء الوطن عمومًا.
-    </p>
-
-    <!-- رسالة الفريق -->
-    <h2>رسالة الفريق</h2>
-    <p>
-      إحداث أثر مجتمعي فاعل من خلال ترسيخ ثقافة العمل التطوعي، وتحفيز الأفراد على المبادرة والعطاء، وتنمية القدرات والمهارات، وبناء جيل واعٍ يؤمن بالمسؤولية، ويعمل بروح الفريق الواحد، ويصنع التغيير بيده لا بانتظاره.
-    </p>
-
-    <!-- أهداف الفريق -->
-    <h2>أهداف الفريق</h2>
-    <ul>
-      <li>إشاعة روح المبادرة والعمل التطوعي في المجتمع.</li>
-      <li>تمكين الطاقات الشابة وتوجيهها نحو خدمة المجتمع.</li>
-      <li>تنفيذ برامج تطوعية وتطويرية ذات قيمة حقيقية وأثر ملموس.</li>
-      <li>تعزيز العمل بروح الفريق الواحد واليد الواحدة.</li>
-      <li>تمكين المشاركين من توثيق نشاطهم التطوعي للحصول على نقاط ضمن نظام مجلس الخدمة الاتحادي.</li>
-    </ul>
-
-    <!-- الفئات المستهدفة -->
-    <h2>الفئات المستهدفة وبرامج الفريق</h2>
-    <p>
-      يستهدف الفريق كل من يؤمن بأن له دورًا في هذا المجتمع، من طلبة وخريجين ومتطوعين، عبر برامج نوعية ملهمة تسعى إلى صناعة أثر مستدام، وتوسيع دائرة المشاركة المجتمعية.  
-      كما نعمل على إعداد برنامج خاص يُنفّذ وفق رؤية وخطة مدروسة، ليكون نقطة انطلاق حقيقية نحو عمل مؤثر ومنظم.
-    </p>
-
-    <!-- دعوة للتحرك -->
-    <h2>نداء للمبادرة</h2>
-    <p>
-      ندعوكم للقاء قريب نتحاور فيه، نتشارك الرؤى، ونضع معًا خارطة طريق واضحة للانطلاق إلى الميدان والعمل على أرض الواقع، مستلهمين من خبراتكم وآرائكم القيّمة.  
-      بادر قبل أن تغادر… فالأثر لا ينتظر المترددين، والتاريخ لا يذكر إلا أصحاب المبادرات.  
-      فالأوطان تُبنى بسواعد المبادرين، لا بأمنيات المتفرجين.
-    </p>
-
-    <!-- زر الدخول إلى الاستمارة -->
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdM4qCvza9NwIpwnmBFXqoSuWPJrdyi9L7hBFfZVBQMoTIXwA/viewform?embedded=true" target="_blank" class="btn">
-      الدخول إلى الاستمارة
-    </a>
-
-    <!-- Footer -->
-    <footer>
-      © فريق أثر كيميائي – محافظة ديالى
-    </footer>
-
-  </div>
-</body>
-</html>    <p>
-      إيمانًا بأن العطاء مسؤولية، وبأن المبادرة تصنع الفرق، وبأن الأثر لا يُقاس بالكلمات بل بالأفعال.  
-      السلام عليكم ورحمة الله وبركاته،  
-      يسرّنا ويشرّفنا أن نخطو مع حضراتكم خطوةً نحو صناعة أثر حقيقي، من خلال تأسيس فريق تطوعي يؤمن بأن خدمة المجتمع ليست خيارًا مؤجلًا، بل واجبًا حاضرًا، وبأن العمل الجماعي هو الطريق الأقصر للتغيير والبناء.
-    </p>
-
-    <p>
-      وقد رسم لنا الله تعالى منهج التعاون بقوله:  
-      <strong>﴿وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ﴾</strong>،  
-      وأكد رسول الله ﷺ هذا المعنى بقوله:  
-      <em>«أَحَبُّ النَّاسِ إِلَى اللَّهِ أَنْفَعُهُمْ لِلنَّاسِ»</em>.
-    </p>
-
-    <p>
-      وانطلاقًا من هذا الإيمان العميق، جاءت فكرة هذا الفريق التطوعي ليكون مساحةً للعطاء، ومنصةً للمبادرة، وصوتًا يُوقظ الهمم، ويحوّل الطاقات إلى أفعال، والأفكار إلى واقع ملموس، دعمًا للطاقات الشابة، وخدمةً للمجتمع بكل فئاته، وإسهامًا في بناء محافظتنا العزيزة ديالى وبناء الوطن عمومًا.
-    </p>
-
-    <!-- رسالة الفريق -->
-    <h2>رسالة الفريق</h2>
-    <p>
-      إحداث أثر مجتمعي فاعل من خلال ترسيخ ثقافة العمل التطوعي، وتحفيز الأفراد على المبادرة والعطاء، وتنمية القدرات والمهارات، وبناء جيل واعٍ يؤمن بالمسؤولية، ويعمل بروح الفريق الواحد، ويصنع التغيير بيده لا بانتظاره.
-    </p>
-
-    <!-- أهداف الفريق -->
-    <h2>أهداف الفريق</h2>
-    <ul>
-      <li>إشاعة روح المبادرة والعمل التطوعي في المجتمع.</li>
-      <li>تمكين الطاقات الشابة وتوجيهها نحو خدمة المجتمع.</li>
-      <li>تنفيذ برامج تطوعية وتطويرية ذات قيمة حقيقية وأثر ملموس.</li>
-      <li>تعزيز العمل بروح الفريق الواحد واليد الواحدة.</li>
-      <li>تمكين المشاركين من توثيق نشاطهم التطوعي للحصول على نقاط ضمن نظام مجلس الخدمة الاتحادي.</li>
-    </ul>
-
-    <!-- الفئات المستهدفة -->
-    <h2>الفئات المستهدفة وبرامج الفريق</h2>
-    <p>
-      يستهدف الفريق كل من يؤمن بأن له دورًا في هذا المجتمع، من طلبة وخريجين ومتطوعين، عبر برامج نوعية ملهمة تسعى إلى صناعة أثر مستدام، وتوسيع دائرة المشاركة المجتمعية.  
-      كما نعمل على إعداد برنامج خاص يُنفّذ وفق رؤية وخطة مدروسة، ليكون نقطة انطلاق حقيقية نحو عمل مؤثر ومنظم.
-    </p>
-
-    <!-- دعوة للتحرك -->
-    <h2>نداء للمبادرة</h2>
-    <p>
-      ندعوكم للقاء قريب نتحاور فيه، نتشارك الرؤى، ونضع معًا خارطة طريق واضحة للانطلاق إلى الميدان والعمل على أرض الواقع، مستلهمين من خبراتكم وآرائكم القيّمة.  
-      بادر قبل أن تغادر… فالأثر لا ينتظر المترددين، والتاريخ لا يذكر إلا أصحاب المبادرات.  
-      فالأوطان تُبنى بسواعد المبادرين، لا بأمنيات المتفرجين.
-    </p>
-
-    <!-- زر الدخول إلى الاستمارة -->
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdM4qCvza9NwIpwnmBFXqoSuWPJrdyi9L7hBFfZVBQMoTIXwA/viewform?embedded=true" target="_blank" class="btn">
-      الدخول إلى الاستمارة
-    </a>
-
-    <!-- Footer -->
-    <footer>
-      © فريق أثر كيميائي – محافظة ديالى
-    </footer>
-
-  </div>
 </body>
 </html>
