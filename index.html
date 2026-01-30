@@ -3,106 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل فريق أثر كيميائي</title>
+    <title>فريق أثر كيميائي - استمارة التسجيل</title>
     <style>
-        body { font-family: 'Tahoma', sans-serif; background: #f4f7f9; padding: 20px; color: #333; }
-        .container { background: white; max-width: 600px; margin: auto; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        h2 { color: #2c7a7b; border-bottom: 2px solid #2c7a7b; padding-bottom: 10px; }
-        h3 { background: #e6fffa; padding: 10px; border-right: 5px solid #2c7a7b; font-size: 16px; margin-top: 25px; }
-        p.desc { font-size: 14px; color: #666; line-height: 1.6; }
-        .field { margin-bottom: 15px; text-align: right; }
-        label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 14px; }
-        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
-        .radio-group { display: flex; gap: 15px; align-items: center; margin-top: 5px; }
-        .radio-group input { width: auto; }
-        .checkbox-group { display: block; margin-bottom: 10px; font-size: 14px; }
-        .checkbox-group input { width: auto; margin-left: 10px; }
-        button { width: 100%; padding: 15px; background: #2c7a7b; color: white; border: none; border-radius: 10px; font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 20px; }
-        button:hover { background: #1e5a5c; }
+        :root { --primary-color: #1a5d1a; --secondary-color: #f7fee7; }
+        body { font-family: 'Tahoma', sans-serif; background: #f0f2f5; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .form-card { background: white; max-width: 600px; width: 100%; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); overflow: hidden; border: 1px solid #e0e0e0; }
+        .header { background: linear-gradient(135deg, #1a5d1a 0%, #2d7a2d 100%); color: white; padding: 40px 20px; text-align: center; }
+        .logo { width: 140px; height: 140px; background: white; border-radius: 50%; padding: 5px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); object-fit: contain; }
+        .content { padding: 35px; }
+        h2 { margin: 10px 0; font-size: 24px; }
+        h3 { color: var(--primary-color); border-right: 5px solid var(--primary-color); padding-right: 12px; margin: 30px 0 15px; font-size: 18px; background: var(--secondary-color); padding-top: 8px; padding-bottom: 8px; }
+        .input-box { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; color: #333; }
+        input, select, textarea { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 12px; font-size: 14px; transition: 0.3s; box-sizing: border-box; }
+        input:focus { border-color: var(--primary-color); outline: none; background: #fff; box-shadow: 0 0 8px rgba(26, 93, 26, 0.1); }
+        .radio-group { display: flex; gap: 20px; padding: 5px 0; }
+        .check-item { display: flex; align-items: center; margin-bottom: 12px; font-size: 14px; background: #fafafa; padding: 12px; border-radius: 10px; cursor: pointer; border: 1px solid #eee; }
+        .check-item input { width: auto; margin-left: 10px; }
+        button { width: 100%; padding: 18px; background: var(--primary-color); color: white; border: none; border-radius: 15px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 25px; box-shadow: 0 5px 15px rgba(26, 93, 26, 0.3); }
+        button:hover { background: #144614; transform: translateY(-2px); }
+        footer { text-align: center; padding: 25px; color: #999; font-size: 13px; background: #fdfdfd; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>استمارة التسجيل في الفريق التطوعي – محافظة ديالى</h2>
-    <p class="desc">إيمانًا بأن العطاء مسؤولية، وبأن المبادرة تصنع الفرق، نطلق هذه الاستمارة للتسجيل في الفريق التطوعي، إسهامًا في خدمة المجتمع، ودعم الطاقات الشابة، وصناعة أثر مجتمعي حقيقي ومنظّم.</p>
+<div class="form-card">
+    <div class="header">
+        <img src="https://i.ibb.co/Ld89R6V/Chem-Impact-Logo.png" alt="فريق أثر كيميائي" class="logo">
+        <h2>استمارة الانضمام للفريق التطوعي</h2>
+        <p>مبادرة تصنع الأثر – محافظة ديالى</p>
+    </div>
 
-    <form id="volunteerForm">
-        <h3>1️⃣ البيانات الشخصية</h3>
-        <div class="field">
-            <label>الاسم الثلاثي *</label>
-            <input type="text" name="fullName" required>
-        </div>
-        <div class="field">
-            <label>الجنس *</label>
-            <div class="radio-group">
-                <label><input type="radio" name="gender" value="ذكر" required> ذكر</label>
-                <label><input type="radio" name="gender" value="أنثى"> أنثى</label>
+    <div class="content">
+        <p style="text-align: center; color: #555; line-height: 1.7; font-size: 14px; background: #f9f9f9; padding: 15px; border-radius: 10px;">
+            إيمانًا بأن العطاء مسؤولية، وبأن المبادرة تصنع الفرق، نطلق هذه الاستمارة للتسجيل في فريق أثر كيميائي، إسهامًا في خدمة المجتمع ودعم الطاقات الشابة.
+        </p>
+
+        <form id="chemImpactForm">
+            <h3>1️⃣ البيانات الشخصية</h3>
+            <div class="input-box">
+                <label>الاسم الثلاثي الكامل *</label>
+                <input type="text" name="fullName" placeholder="اكتب اسمك هنا..." required>
             </div>
-        </div>
-        <div class="field">
-            <label>تاريخ الولادة *</label>
-            <input type="date" name="dob" required>
-        </div>
-        <div class="field">
-            <label>المحافظة / القضاء (مثال: ديالى – بعقوبة) *</label>
-            <input type="text" name="location" required>
-        </div>
-        <div class="field">
-            <label>رقم الهاتف (واتساب فعّال) *</label>
-            <input type="tel" name="phone" pattern="[0-9+]{10,15}" required>
-        </div>
-        <div class="field">
-            <label>البريد الإلكتروني (إن وجد)</label>
-            <input type="email" name="email">
-        </div>
+            
+            <div style="display: flex; gap: 15px;">
+                <div class="input-box" style="flex: 1;">
+                    <label>الجنس *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gender" value="ذكر" required> ذكر</label>
+                        <label><input type="radio" name="gender" value="أنثى"> أنثى</label>
+                    </div>
+                </div>
+                <div class="input-box" style="flex: 1;">
+                    <label>تاريخ الولادة *</label>
+                    <input type="date" name="dob" required>
+                </div>
+            </div>
 
-        <h3>2️⃣ المعلومات الدراسية والمهنية</h3>
-        <div class="field">
-            <label>الحالة الدراسية *</label>
-            <select name="eduStatus" required>
-                <option value="طالب">طالب</option>
-                <option value="خريج">خريج</option>
-                <option value="موظف">موظف</option>
-                <option value="عاطل عن العمل">عاطل عن العمل</option>
-            </select>
-        </div>
-        <div class="field">
-            <label>التخصص / القسم</label>
-            <input type="text" name="major">
-        </div>
-        <div class="field">
-            <label>اسم الجامعة / المعهد</label>
-            <input type="text" name="university">
-        </div>
+            <div class="input-box">
+                <label>المحافظة / القضاء *</label>
+                <input type="text" name="location" placeholder="ديالى - بعقوبة" required>
+            </div>
+            
+            <div class="input-box">
+                <label>رقم الهاتف (واتساب فعّال) *</label>
+                <input type="tel" name="phone" placeholder="07XXXXXXXX" required>
+            </div>
 
-        <h3>3️⃣ الخبرة والاهتمامات التطوعية</h3>
-        <div class="field">
-            <label>هل سبق لك المشاركة في أعمال تطوعية؟ *</label>
-            <select name="hasExperience" required>
-                <option value="نعم">نعم</option>
-                <option value="لا">لا</option>
-            </select>
-        </div>
-        <div class="field">
-            <label>إن كانت الإجابة نعم، اذكرها باختصار</label>
-            <textarea name="expDetails"></textarea>
-        </div>
-        <div class="field">
-            <label>المجالات التي تفضّل العمل بها (يمكن اختيار أكثر من مجال):</label>
-            <div class="checkbox-group"><input type="checkbox" name="interests" value="حملات إنسانية"> حملات إنسانية وإغاثية</div>
-            <div class="checkbox-group"><input type="checkbox" name="interests" value="أنشطة تعليمية"> أنشطة تعليمية وتدريبية</div>
-            <div class="checkbox-group"><input type="checkbox" name="interests" value="حملات توعوية"> حملات توعوية</div>
-            <div class="checkbox-group"><input type="checkbox" name="interests" value="تنظيم فعاليات"> تنظيم فعاليات ومؤتمرات</div>
-        </div>
-        <div class="field">
-            <label>كم تستطيع تخصيص وقت للعمل التطوعي؟ *</label>
-            <select name="timeCommit" required>
-                <option value="يوم واحد أسبوعيًا">يوم واحد أسبوعيًا</option>
-                <option value="يومان">يومان</option>
-                <option value="حسب الحاجة">حسب الحاجة</option>
-                <option value="غير محدد">غير محدد</option>
-            </select>
+            <h3>2️⃣ المعلومات الدراسية والمهنية</h3>
+            <div class="input-box">
+                <label>الحالة الدراسية / المهنية *</label>
+                <select name="eduStatus" required>
+                    <option value="" disabled selected>اختر حالتك...</option>
+                    <option value="طالب">طالب</option>
+                    <option value="خريج">خريج</option>
+                    <option value="موظف">موظف</option>
+                    <option value="عاطل عن العمل">عاطل عن العمل</option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label>التخصص الدراسي / القسم</label>
+                <input type="text" name="major" placeholder="مثال: هندسة كيمياوية">
+            </div>
+
+            <h3>3️⃣ الاهتمامات والالتزام</h3>
+            <div class="input-box">
+                <label>المجالات التي تفضل المساهمة بها:</label>
+                <label class="check-item"><input type="checkbox" name="interests" value="حملات إنسانية"> حملات إنسانية وإغاثية</label>
+                <label class="check-item"><input type="checkbox" name="interests" value="أنشطة تعليمية"> أنشطة تعليمية وتدريبية</label>
+                <label class="check-item"><input type="checkbox" name="interests" value="إعلام وتصميم"> إعلام وتصميم وإدارة منصات</label>
+                <label class="check-item"><input type="checkbox" name="interests" value="عمل ميداني"> تنظيم ميداني وفعاليات</label>
+            </div>
+
+            <div class="input-box">
+                <label>الوقت المتاح للتطوع *</label>
+                <select name="timeCommit" required>
+                    <option value="يوم واحد">يوم واحد في الأسبوع</option>
+                    <option value="يومان">يومان في الأسبوع</option>
+                    <option value="حسب الحاجة">حسب الحاجة</option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label>لماذا ترغب بالانضمام إلينا؟ *</label>
+                <textarea name="motivation" rows="3" placeholder="عبر عن دافعك بكلمات بسيطة..." required></textarea>
+            </div>
+
+            <div class="input-box">
+                <label class="check-item" style="border: 1px solid var(--primary-color); background: var(--secondary-color);">
+                    <input type="checkbox" required> أتعهد بصحة المعلومات والالتزام بروح الفريق الواحد. *
+                </label>
+            </div>
+
+            <button type="submit" id="submitBtn">إرسال طلب الانضمام</button>
+        </form>
+    </div>
+    <footer>
+        فريق أثر كيميائي © 2026<br>
+        كن مستعداً… فالأثر يبدأ بخطوة
+    </footer>
+</div>
+
+<script>
+    const form = document.getElementById('chemImpactForm');
+    const btn = document.getElementById('submitBtn');
+
+    form.onsubmit = async (e) => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerText = "جاري الحفظ في السجلات...";
+
+        // انسخ رابط الـ /exec من الـ Apps Script وضعه هنا
+        const scriptURL = "ضـع_رابط_النشر_هنا";
+
+        try {
+            const formData = new FormData(form);
+            const interests = [];
+            document.querySelectorAll('input[name="interests"]:checked').forEach(c => interests.push(c.value));
+            formData.set('interests', interests.join(' - '));
+
+            await fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors'});
+            
+            alert("شكرًا لتسجيلك 🌱\nنثمّن رغبتك في العطاء، وسيتم التواصل معك قريباً عبر الهاتف.");
+            form.reset();
+        } catch (error) {
+            alert("عذراً، حدث خطأ. تأكد من اتصالك بالإنترنت.");
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "إرسال طلب الانضمام";
+        }
+    };
+</script>
+
+</body>
+</html>
         </div>
 
         <h3>4️⃣ الدافع الشخصي</h3>
