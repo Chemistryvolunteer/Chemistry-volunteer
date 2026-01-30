@@ -3,137 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فريق أثر كيميائي - الاستمارة الرسمية</title>
+    <title>استمارة فريق أثر كيميائي التطوعي</title>
     <style>
-        :root { --main-green: #1a5d1a; --light-green: #f7fee7; }
-        body { font-family: 'Tahoma', sans-serif; background: #f0f2f5; margin: 0; padding: 10px; display: flex; justify-content: center; }
-        .card { background: white; max-width: 500px; width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
+        :root { --primary: #1a5d1a; --secondary: #f0fdf4; --accent: #2d7a2d; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; margin: 0; padding: 15px; display: flex; justify-content: center; }
+        .form-container { background: white; max-width: 650px; width: 100%; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); overflow: hidden; border: 1px solid #e0e0e0; }
         
-        /* الهيدر الاحترافي */
-        .header { background: var(--main-green); color: white; padding: 30px 15px; text-align: center; position: relative; }
-        .logo-wrap { background: white; width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        .logo-wrap img { width: 85%; height: 85%; object-fit: contain; }
+        /* الهيدر مع اللوجو */
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: white; padding: 40px 20px; text-align: center; }
+        .logo-box { background: white; width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 15px; padding: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; }
+        .logo-box img { width: 90%; height: 90%; object-fit: contain; }
         
-        .content { padding: 20px; }
-        .section-header { background: var(--light-green); color: var(--main-green); padding: 10px; border-right: 5px solid var(--main-green); font-weight: bold; margin: 20px 0 15px; font-size: 15px; }
+        .content { padding: 30px; }
+        .intro-text { text-align: center; color: #555; font-size: 14px; line-height: 1.6; background: var(--secondary); padding: 15px; border-radius: 12px; margin-bottom: 25px; border-right: 5px solid var(--primary); }
         
-        .field { margin-bottom: 18px; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #333; }
+        h3 { color: var(--primary); font-size: 18px; margin: 30px 0 15px; border-bottom: 2px solid var(--secondary); padding-bottom: 8px; }
         
-        /* إصلاح حقول الإدخال لتناسب الموبايل */
-        input, select, textarea { 
-            width: 100%; padding: 12px; border: 1.5px solid #ddd; border-radius: 10px; 
-            font-size: 14px; box-sizing: border-box; transition: 0.3s;
-        }
-        input:focus { border-color: var(--main-green); outline: none; background: #fff; }
+        .field { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; color: #333; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1.5px solid #ddd; border-radius: 10px; font-size: 14px; box-sizing: border-box; transition: 0.3s; }
+        input:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 8px rgba(26,93,26,0.1); }
 
-        .row { display: flex; gap: 10px; }
-        .row .field { flex: 1; }
+        .radio-group { display: flex; gap: 20px; padding: 10px 0; }
+        .check-item { display: flex; align-items: center; background: #fafafa; padding: 12px; border-radius: 10px; margin-bottom: 10px; cursor: pointer; border: 1px solid #eee; transition: 0.2s; }
+        .check-item:hover { background: var(--secondary); }
+        .check-item input { width: auto; margin-left: 10px; }
 
-        /* تنسيق الخيارات */
-        .opt-card { background: #fafafa; border: 1px solid #eee; padding: 10px; border-radius: 10px; margin-bottom: 8px; display: flex; align-items: center; cursor: pointer; }
-        .opt-card input { width: auto; margin-left: 10px; }
-
-        button { 
-            width: 100%; padding: 16px; background: var(--main-green); color: white; 
-            border: none; border-radius: 12px; font-size: 17px; font-weight: bold; 
-            cursor: pointer; margin-top: 10px; box-shadow: 0 5px 15px rgba(26,93,26,0.3);
-        }
-        footer { text-align: center; padding: 20px; color: #888; font-size: 12px; }
+        button { width: 100%; padding: 18px; background: var(--primary); color: white; border: none; border-radius: 15px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 25px; box-shadow: 0 6px 20px rgba(26,93,26,0.3); transition: 0.3s; }
+        button:hover { background: #144614; transform: translateY(-2px); }
+        footer { text-align: center; padding: 25px; color: #888; font-size: 12px; border-top: 1px solid #eee; background: #fdfdfd; }
     </style>
 </head>
 <body>
 
-<div class="card">
+<div class="form-container">
     <div class="header">
-        <div class="logo-wrap">
-            <img src="https://i.ibb.co/Ld89R6V/Chem-Impact-Logo.png" alt="Logo">
+        <div class="logo-box">
+            <img src="https://i.ibb.co/Ld89R6V/Chem-Impact-Logo.png" alt="Chem Impact Logo">
         </div>
-        <h2 style="margin:0; font-size: 20px;">فريق أثر كيميائي التطوعي</h2>
-        <p style="margin:5px 0 0; font-size: 13px; opacity: 0.9;">مبادرة تصنع الأثر - محافظة ديالى</p>
+        <h2 style="margin:0;">استمارة التسجيل في الفريق التطوعي</h2>
+        <p style="margin:5px 0 0; opacity: 0.9;">محافظة ديالى – مبادرة تصنع الأثر</p>
     </div>
 
     <div class="content">
-        <form id="finalForm">
-            <div class="section-header">1️⃣ البيانات الشخصية</div>
-            <div class="field">
-                <label>الاسم الثلاثي الكامل *</label>
-                <input type="text" name="fullName" placeholder="اكتب اسمك هنا..." required>
-            </div>
+        <div class="intro-text">
+            إيمانًا بأن العطاء مسؤولية، وبأن المبادرة تصنع الفرق، نطلق هذه الاستمارة للتسجيل في الفريق التطوعي، إسهامًا في خدمة المجتمع، ودعم الطاقات الشابة، وصناعة أثر مجتمعي حقيقي ومنظّم.
+        </div>
 
-            <div class="row">
-                <div class="field">
-                    <label>الجنس *</label>
-                    <select name="gender" required>
-                        <option value="ذكر">ذكر</option>
-                        <option value="أنثى">أنثى</option>
-                    </select>
-                </div>
-                <div class="field">
-                    <label>تاريخ الميلاد *</label>
-                    <input type="date" name="dob" required>
+        <form id="fullVolunteerForm">
+            <h3>1️⃣ البيانات الشخصية</h3>
+            <div class="field">
+                <label>الاسم الثلاثي *</label>
+                <input type="text" name="fullName" required>
+            </div>
+            <div class="field">
+                <label>الجنس *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="ذكر" required> ذكر</label>
+                    <label><input type="radio" name="gender" value="أنثى"> أنثى</label>
                 </div>
             </div>
-
             <div class="field">
-                <label>المحافظة / القضاء *</label>
-                <input type="text" name="location" placeholder="ديالى - بعقوبة" required>
+                <label>تاريخ الولادة *</label>
+                <input type="date" name="dob" required>
             </div>
-
             <div class="field">
-                <label>رقم الهاتف (واتساب) *</label>
+                <label>المحافظة / القضاء (مثال: ديالى – بعقوبة) *</label>
+                <input type="text" name="location" required>
+            </div>
+            <div class="field">
+                <label>رقم الهاتف (واتساب فعّال) *</label>
                 <input type="tel" name="phone" placeholder="07XXXXXXXX" required>
             </div>
+            <div class="field">
+                <label>البريد الإلكتروني (إن وجد)</label>
+                <input type="email" name="email">
+            </div>
 
-            <div class="section-header">2️⃣ الدراسة والمهنة</div>
+            <h3>2️⃣ المعلومات الدراسية والمهنية</h3>
             <div class="field">
                 <label>الحالة الدراسية *</label>
                 <select name="eduStatus" required>
                     <option value="طالب">طالب</option>
                     <option value="خريج">خريج</option>
                     <option value="موظف">موظف</option>
+                    <option value="عاطل عن العمل">عاطل عن العمل</option>
                 </select>
             </div>
             <div class="field">
-                <label>التخصص / القسم</label>
+                <label>التخصص / القسم (إن وجد)</label>
                 <input type="text" name="major">
             </div>
-
-            <div class="section-header">3️⃣ الاهتمامات والالتزام</div>
-            <label>المجالات التي تفضلها:</label>
-            <label class="opt-card"><input type="checkbox" name="interests" value="إنسانية"> حملات إنسانية وإغاثية</label>
-            <label class="opt-card"><input type="checkbox" name="interests" value="تعليمية"> أنشطة تعليمية وتدريبية</label>
-            <label class="opt-card"><input type="checkbox" name="interests" value="إعلام"> إعلام وتصميم</label>
-
-            <div class="field" style="margin-top:15px;">
-                <label>لماذا ترغب بالانضمام إلينا؟ *</label>
-                <textarea name="motivation" rows="3" required></textarea>
+            <div class="field">
+                <label>اسم الجامعة / المعهد (إن وجد)</label>
+                <input type="text" name="university">
             </div>
 
-            <label class="opt-card" style="border: 1px solid var(--main-green); background: var(--light-green);">
-                <input type="checkbox" required> أتعهد بصحة البيانات والالتزام بروح الفريق. *
+            <h3>3️⃣ الخبرة والاهتمامات التطوعية</h3>
+            <div class="field">
+                <label>هل سبق لك المشاركة في أعمال تطوعية؟ *</label>
+                <select name="hasExperience" required>
+                    <option value="لا">لا</option>
+                    <option value="نعم">نعم</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>إن كانت الإجابة نعم، اذكرها باختصار</label>
+                <textarea name="expDetails" rows="2"></textarea>
+            </div>
+            <div class="field">
+                <label>المجالات التي تفضّل العمل بها:</label>
+                <label class="check-item"><input type="checkbox" name="interests" value="حملات إنسانية"> حملات إنسانية وإغاثية</label>
+                <label class="check-item"><input type="checkbox" name="interests" value="أنشطة تعليمية"> أنشطة تعليمية وتدريبية</label>
+                <label class="check-item"><input type="checkbox" name="interests" value="حملات توعوية"> حملات توعوية</label>
+                <label class="check-item"><input type="checkbox" name="interests" value="إعلام وتصميم"> إعلام وتصميم وإدارة منصات</label>
+            </div>
+            <div class="field">
+                <label>كم تستطيع تخصيص وقت للعمل التطوعي؟ *</label>
+                <select name="timeCommit" required>
+                    <option value="يوم واحد أسبوعيًا">يوم واحد أسبوعيًا</option>
+                    <option value="يومان">يومان</option>
+                    <option value="حسب الحاجة">حسب الحاجة</option>
+                    <option value="غير محدد">غير محدد</option>
+                </select>
+            </div>
+
+            <h3>4️⃣ الدافع والالتزام</h3>
+            <div class="field">
+                <label>لماذا ترغب بالانضمام إلى الفريق التطوعي؟ *</label>
+                <textarea name="motivation" rows="3" required></textarea>
+            </div>
+            <div class="field">
+                <label>هل أنت ملتزم بالعمل بروح الفريق واحترام التعليمات؟ *</label>
+                <select name="commitment" required>
+                    <option value="نعم">نعم</option>
+                    <option value="نعم وبكل جدية">نعم وبكل جدية</option>
+                </select>
+            </div>
+
+            <h3>5️⃣ التعهد</h3>
+            <label class="check-item" style="border: 1px solid var(--primary); background: var(--secondary);">
+                <input type="checkbox" required> أتعهد بأن المعلومات المقدّمة صحيحة، وألتزم بقيم العمل التطوعي. *
             </label>
 
-            <button type="submit" id="btn">إرسال طلب الانضمام</button>
+            <button type="submit" id="submitBtn">إرسال طلب الانضمام</button>
         </form>
     </div>
-
     <footer>
-        جميع الحقوق محفوظة © فريق أثر كيميائي 2026<br>
-        فالأثر يبدأ بخطوة..
+        شكرًا لتسجيلك 🌱<br>
+        سيتم التواصل مع المقبولين لاحقًا. الأثر يبدأ بخطوة.
     </footer>
 </div>
 
 <script>
-    const form = document.getElementById('finalForm');
-    const btn = document.getElementById('btn');
+    const form = document.getElementById('fullVolunteerForm');
+    const btn = document.getElementById('submitBtn');
 
     form.onsubmit = async (e) => {
         e.preventDefault();
         btn.disabled = true;
-        btn.innerText = "جاري الحفظ...";
+        btn.innerText = "جاري الإرسال وحفظ البيانات...";
 
-        // الرابط الخاص بك
         const scriptURL = "https://script.google.com/macros/s/AKfycbzEKVdpIhMmXBfd9QsufzwVBbgwPdypsLu-e-kxsPiz2KT3EmWkfuWezL40vtYA3ckdew/exec";
 
         try {
@@ -143,16 +173,15 @@
             formData.set('interests', interests.join(' - '));
 
             await fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors'});
-            alert("تم تسجيلك بنجاح في فريق أثر كيميائي 🌱");
+            alert("تم استلام طلبك بنجاح! شكرًا لانضمامك لفريق أثر كيميائي.");
             form.reset();
         } catch (error) {
-            alert("حدث خطأ، حاول مرة أخرى.");
+            alert("عذرًا، حدث خطأ. تأكد من الإنترنت وحاول مجددًا.");
         } finally {
             btn.disabled = false;
             btn.innerText = "إرسال طلب الانضمام";
         }
     };
 </script>
-
 </body>
 </html>
