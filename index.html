@@ -3,122 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فريق أثر كيميائي - استمارة التسجيل</title>
+    <title>فريق أثر كيميائي - الاستمارة الرسمية</title>
     <style>
-        :root { --primary-color: #1a5d1a; --secondary-color: #f7fee7; }
-        body { font-family: 'Tahoma', sans-serif; background: #f0f2f5; margin: 0; padding: 15px; display: flex; justify-content: center; }
-        .form-card { background: white; max-width: 550px; width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; border: 1px solid #e0e0e0; }
-        .header { background: linear-gradient(135deg, #1a5d1a 0%, #2d7a2d 100%); color: white; padding: 30px 15px; text-align: center; }
-        .logo { width: 110px; height: 110px; background: white; border-radius: 50%; padding: 5px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); object-fit: contain; }
-        .content { padding: 25px; }
-        h2 { margin: 5px 0; font-size: 20px; }
-        h3 { color: var(--primary-color); border-right: 4px solid var(--primary-color); padding-right: 10px; margin: 25px 0 15px; font-size: 16px; background: var(--secondary-color); padding-top: 5px; padding-bottom: 5px; }
-        .input-box { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 13px; color: #333; }
-        input, select, textarea { width: 100%; padding: 10px; border: 1.5px solid #eee; border-radius: 10px; font-size: 14px; transition: 0.3s; box-sizing: border-box; }
-        input:focus { border-color: var(--primary-color); outline: none; background: #fff; }
-        .radio-group { display: flex; gap: 15px; padding: 5px 0; flex-wrap: wrap; }
-        .check-item { display: flex; align-items: center; margin-bottom: 10px; font-size: 13px; background: #fafafa; padding: 10px; border-radius: 8px; cursor: pointer; border: 1px solid #eee; }
-        .check-item input { width: auto; margin-left: 8px; }
-        button { width: 100%; padding: 15px; background: var(--primary-color); color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 20px; }
-        button:hover { background: #144614; }
-        footer { text-align: center; padding: 20px; color: #999; font-size: 12px; border-top: 1px solid #eee; }
+        :root { --main-green: #1a5d1a; --light-green: #f7fee7; }
+        body { font-family: 'Tahoma', sans-serif; background: #f0f2f5; margin: 0; padding: 10px; display: flex; justify-content: center; }
+        .card { background: white; max-width: 500px; width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
+        
+        /* الهيدر الاحترافي */
+        .header { background: var(--main-green); color: white; padding: 30px 15px; text-align: center; position: relative; }
+        .logo-wrap { background: white; width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .logo-wrap img { width: 85%; height: 85%; object-fit: contain; }
+        
+        .content { padding: 20px; }
+        .section-header { background: var(--light-green); color: var(--main-green); padding: 10px; border-right: 5px solid var(--main-green); font-weight: bold; margin: 20px 0 15px; font-size: 15px; }
+        
+        .field { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #333; }
+        
+        /* إصلاح حقول الإدخال لتناسب الموبايل */
+        input, select, textarea { 
+            width: 100%; padding: 12px; border: 1.5px solid #ddd; border-radius: 10px; 
+            font-size: 14px; box-sizing: border-box; transition: 0.3s;
+        }
+        input:focus { border-color: var(--main-green); outline: none; background: #fff; }
+
+        .row { display: flex; gap: 10px; }
+        .row .field { flex: 1; }
+
+        /* تنسيق الخيارات */
+        .opt-card { background: #fafafa; border: 1px solid #eee; padding: 10px; border-radius: 10px; margin-bottom: 8px; display: flex; align-items: center; cursor: pointer; }
+        .opt-card input { width: auto; margin-left: 10px; }
+
+        button { 
+            width: 100%; padding: 16px; background: var(--main-green); color: white; 
+            border: none; border-radius: 12px; font-size: 17px; font-weight: bold; 
+            cursor: pointer; margin-top: 10px; box-shadow: 0 5px 15px rgba(26,93,26,0.3);
+        }
+        footer { text-align: center; padding: 20px; color: #888; font-size: 12px; }
     </style>
 </head>
 <body>
 
-<div class="form-card">
+<div class="card">
     <div class="header">
-        <img src="https://i.ibb.co/Ld89R6V/Chem-Impact-Logo.png" alt="فريق أثر كيميائي" class="logo">
-        <h2>استمارة الانضمام للفريق التطوعي</h2>
-        <p style="font-size: 13px; margin: 5px 0 0;">مبادرة تصنع الأثر – محافظة ديالى</p>
+        <div class="logo-wrap">
+            <img src="https://i.ibb.co/Ld89R6V/Chem-Impact-Logo.png" alt="Logo">
+        </div>
+        <h2 style="margin:0; font-size: 20px;">فريق أثر كيميائي التطوعي</h2>
+        <p style="margin:5px 0 0; font-size: 13px; opacity: 0.9;">مبادرة تصنع الأثر - محافظة ديالى</p>
     </div>
 
     <div class="content">
-        <form id="chemImpactForm">
-            <h3>1️⃣ البيانات الشخصية</h3>
-            <div class="input-box">
+        <form id="finalForm">
+            <div class="section-header">1️⃣ البيانات الشخصية</div>
+            <div class="field">
                 <label>الاسم الثلاثي الكامل *</label>
-                <input type="text" name="fullName" required>
+                <input type="text" name="fullName" placeholder="اكتب اسمك هنا..." required>
             </div>
-            
-            <div class="input-box">
-                <label>الجنس *</label>
-                <div class="radio-group">
-                    <label><input type="radio" name="gender" value="ذكر" required> ذكر</label>
-                    <label><input type="radio" name="gender" value="أنثى"> أنثى</label>
+
+            <div class="row">
+                <div class="field">
+                    <label>الجنس *</label>
+                    <select name="gender" required>
+                        <option value="ذكر">ذكر</option>
+                        <option value="أنثى">أنثى</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>تاريخ الميلاد *</label>
+                    <input type="date" name="dob" required>
                 </div>
             </div>
 
-            <div class="input-box">
-                <label>تاريخ الولادة *</label>
-                <input type="date" name="dob" required>
-            </div>
-
-            <div class="input-box">
+            <div class="field">
                 <label>المحافظة / القضاء *</label>
                 <input type="text" name="location" placeholder="ديالى - بعقوبة" required>
             </div>
-            
-            <div class="input-box">
-                <label>رقم الهاتف (واتساب فعّال) *</label>
-                <input type="tel" name="phone" required>
+
+            <div class="field">
+                <label>رقم الهاتف (واتساب) *</label>
+                <input type="tel" name="phone" placeholder="07XXXXXXXX" required>
             </div>
 
-            <h3>2️⃣ المعلومات الدراسية والمهنية</h3>
-            <div class="input-box">
-                <label>الحالة الدراسية / المهنية *</label>
+            <div class="section-header">2️⃣ الدراسة والمهنة</div>
+            <div class="field">
+                <label>الحالة الدراسية *</label>
                 <select name="eduStatus" required>
                     <option value="طالب">طالب</option>
                     <option value="خريج">خريج</option>
                     <option value="موظف">موظف</option>
-                    <option value="عاطل عن العمل">عاطل عن العمل</option>
                 </select>
             </div>
-
-            <div class="input-box">
-                <label>التخصص الدراسي / القسم</label>
+            <div class="field">
+                <label>التخصص / القسم</label>
                 <input type="text" name="major">
             </div>
 
-            <h3>3️⃣ الاهتمامات والالتزام</h3>
-            <div class="input-box">
-                <label>المجالات التي تفضل المساهمة بها:</label>
-                <label class="check-item"><input type="checkbox" name="interests" value="حملات إنسانية"> حملات إنسانية وإغاثية</label>
-                <label class="check-item"><input type="checkbox" name="interests" value="أنشطة تعليمية"> أنشطة تعليمية وتدريبية</label>
-                <label class="check-item"><input type="checkbox" name="interests" value="إعلام وتصميم"> إعلام وتصميم وإدارة منصات</label>
-                <label class="check-item"><input type="checkbox" name="interests" value="عمل ميداني"> تنظيم ميداني وفعاليات</label>
-            </div>
+            <div class="section-header">3️⃣ الاهتمامات والالتزام</div>
+            <label>المجالات التي تفضلها:</label>
+            <label class="opt-card"><input type="checkbox" name="interests" value="إنسانية"> حملات إنسانية وإغاثية</label>
+            <label class="opt-card"><input type="checkbox" name="interests" value="تعليمية"> أنشطة تعليمية وتدريبية</label>
+            <label class="opt-card"><input type="checkbox" name="interests" value="إعلام"> إعلام وتصميم</label>
 
-            <div class="input-box">
+            <div class="field" style="margin-top:15px;">
                 <label>لماذا ترغب بالانضمام إلينا؟ *</label>
                 <textarea name="motivation" rows="3" required></textarea>
             </div>
 
-            <div class="input-box">
-                <label class="check-item" style="border: 1px solid var(--primary-color); background: var(--secondary-color);">
-                    <input type="checkbox" required> أتعهد بصحة المعلومات والالتزام بروح الفريق. *
-                </label>
-            </div>
+            <label class="opt-card" style="border: 1px solid var(--main-green); background: var(--light-green);">
+                <input type="checkbox" required> أتعهد بصحة البيانات والالتزام بروح الفريق. *
+            </label>
 
-            <button type="submit" id="submitBtn">إرسال طلب الانضمام</button>
+            <button type="submit" id="btn">إرسال طلب الانضمام</button>
         </form>
     </div>
+
     <footer>
-        فريق أثر كيميائي © 2026<br>
-        كن مستعداً… فالأثر يبدأ بخطوة
+        جميع الحقوق محفوظة © فريق أثر كيميائي 2026<br>
+        فالأثر يبدأ بخطوة..
     </footer>
 </div>
 
 <script>
-    const form = document.getElementById('chemImpactForm');
-    const btn = document.getElementById('submitBtn');
+    const form = document.getElementById('finalForm');
+    const btn = document.getElementById('btn');
 
     form.onsubmit = async (e) => {
         e.preventDefault();
         btn.disabled = true;
-        btn.innerText = "جاري الإرسال...";
+        btn.innerText = "جاري الحفظ...";
 
+        // الرابط الخاص بك
         const scriptURL = "https://script.google.com/macros/s/AKfycbzEKVdpIhMmXBfd9QsufzwVBbgwPdypsLu-e-kxsPiz2KT3EmWkfuWezL40vtYA3ckdew/exec";
 
         try {
@@ -128,11 +143,10 @@
             formData.set('interests', interests.join(' - '));
 
             await fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors'});
-            
-            alert("شكرًا لتسجيلك 🌱\nتم استلام بياناتك بنجاح.");
+            alert("تم تسجيلك بنجاح في فريق أثر كيميائي 🌱");
             form.reset();
         } catch (error) {
-            alert("حدث خطأ في الاتصال.");
+            alert("حدث خطأ، حاول مرة أخرى.");
         } finally {
             btn.disabled = false;
             btn.innerText = "إرسال طلب الانضمام";
