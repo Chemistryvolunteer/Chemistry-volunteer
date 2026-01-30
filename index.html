@@ -3,125 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل التطوع – فريق أثر كيميائي</title>
+    <title>تسجيل فريق أثر كيميائي</title>
     <style>
-        :root {
-            --primary-color: #2c7a7b;
-            --hover-color: #1e5a5c;
-            --bg-color: #eef2f5;
-        }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-color); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 20px 0; }
-        .container { background: #fff; padding: 30px; border-radius: 15px; max-width: 550px; width: 90%; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; }
-        h1 { color: var(--primary-color); margin-bottom: 10px; font-size: 24px; }
-        p { color: #555; font-size: 15px; margin-bottom: 25px; line-height: 1.6; }
-        
-        .form-group { text-align: right; margin-bottom: 15px; }
-        input, select, textarea { 
-            width: 100%; padding: 12px; margin-top: 5px; border-radius: 8px; 
-            border: 1px solid #ddd; box-sizing: border-box; transition: 0.3s;
-            font-size: 14px;
-        }
-        input:focus, select:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 5px rgba(44, 122, 123, 0.2); }
-        
-        button { 
-            width: 100%; padding: 14px; background: var(--primary-color); color: #fff; 
-            border: none; border-radius: 10px; cursor: pointer; margin-top: 15px; 
-            font-size: 16px; font-weight: bold; transition: 0.3s;
-        }
-        button:hover { background: var(--hover-color); }
-        button:disabled { background: #ccc; cursor: not-allowed; }
-        
-        footer { font-size: 13px; color: #888; margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; }
+        body { font-family: 'Tahoma', sans-serif; background: #eef2f5; display: flex; justify-content: center; padding: 20px; }
+        .card { background: white; padding: 30px; border-radius: 15px; max-width: 500px; width: 100%; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        h2 { color: #2c7a7b; text-align: center; }
+        input, select, button { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #ddd; box-sizing: border-box; }
+        button { background: #2c7a7b; color: white; border: none; cursor: pointer; font-weight: bold; }
+        button:hover { background: #1e5a5c; }
+        button:disabled { background: #ccc; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>تسجيل التطوع</h1>
-    <h3>فريق أثر كيميائي</h3>
-    <p>نرحب بكل من يؤمن بأن المبادرة تصنع الأثر. يرجى ملء الاستمارة بدقة وسيتم التواصل معكم لاحقاً.</p>
-
-    <form id="volunteerForm">
+<div class="card">
+    <h2>تسجيل المتطوعين</h2>
+    <p style="text-align: center; color: #666;">فريق أثر كيميائي - محافظة ديالى</p>
+    
+    <form id="regForm">
         <input type="text" name="fullName" placeholder="الاسم الكامل" required>
         <input type="number" name="age" placeholder="العمر" required>
-        <input type="tel" name="phone" placeholder="رقم الهاتف (واتساب)" required>
+        <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+        <input type="text" name="city" placeholder="المحافظة" required>
+        <input type="text" name="district" placeholder="القضاء" required>
+        <input type="text" name="address" placeholder="السكن / نقطة دالة" required>
         
-        <div style="display: flex; gap: 10px;">
-            <input type="text" name="city" placeholder="المحافظة" required>
-            <input type="text" name="district" placeholder="القضاء" required>
-        </div>
-        
-        <input type="text" name="address" placeholder="عنوان السكن بالتفصيل" required>
-
         <select name="jobStatus" required>
             <option value="">الحالة العملية</option>
-            <option value="موظف">موظف</option>
-            <option value="عاطل عن العمل">عاطل عن العمل</option>
             <option value="طالب">طالب</option>
             <option value="خريج">خريج</option>
+            <option value="موظف">موظف</option>
         </select>
 
-        <input type="text" name="specialization" placeholder="الكلية / المعهد والتخصص">
+        <input type="text" name="specialization" placeholder="الكلية / التخصص">
 
-        <select name="prevVolunteer" id="prevVolunteer" required>
-            <option value="">هل لديك خبرة تطوعية سابقة؟</option>
+        <select name="prevVolunteer" id="pVol" required>
+            <option value="">هل تطوعت سابقاً؟</option>
             <option value="نعم">نعم</option>
             <option value="لا">لا</option>
         </select>
-        
-        <input type="text" name="whereVolunteered" id="whereVolunteered" placeholder="أين تطوعت سابقاً؟" style="display:none;">
+        <input type="text" name="whereVolunteered" id="wVol" placeholder="أين تطوعت؟" style="display:none;">
 
         <select name="duration" required>
-            <option value="">مدة التطوع المفضلة</option>
-            <option value="يوم واحد">يوم واحد في الأسبوع</option>
-            <option value="يومان">يومان في الأسبوع</option>
-            <option value="حسب الحاجة">على مدار الشهر (حسب الحاجة)</option>
+            <option value="">مدة التطوع المتاحة</option>
+            <option value="يوم واحد">يوم واحد</option>
+            <option value="يومان">يومان</option>
+            <option value="مفتوح">حسب الحاجة</option>
         </select>
 
-        <button type="submit" id="submitBtn">إرسال البيانات</button>
+        <button type="submit" id="subBtn">إرسال البيانات</button>
     </form>
-
-    <footer>© جميع الحقوق محفوظة لـ فريق أثر كيميائي – ديالى</footer>
 </div>
 
 <script>
-    const form = document.getElementById('volunteerForm');
-    const btn = document.getElementById('submitBtn');
-    const prevVolSelect = document.getElementById('prevVolunteer');
-    const whereInput = document.getElementById('whereVolunteered');
+    const form = document.getElementById('regForm');
+    const btn = document.getElementById('subBtn');
+    
+    document.getElementById('pVol').onchange = function() {
+        document.getElementById('wVol').style.display = this.value === 'نعم' ? 'block' : 'none';
+    };
 
-    // إظهار حقل "أين تطوعت" فقط إذا اختار نعم
-    prevVolSelect.addEventListener('change', function() {
-        whereInput.style.display = this.value === 'نعم' ? 'block' : 'none';
-    });
-
-    form.addEventListener('submit', e => {
+    form.onsubmit = async (e) => {
         e.preventDefault();
         btn.disabled = true;
         btn.innerText = "جاري الإرسال...";
 
-        const data = new FormData(form);
+        // !!! استبدل الرابط أدناه برابط الـ /exec الخاص بك !!!
+        const scriptURL = "https://script.google.com/macros/s/AKfycbxvv2bKxIgv40EE47zEc_fGY5EQM7EbvKcvnAkd85S-_bTJb-Newb_quA8hSqLs0qVQUQ/exec";
 
-        fetch("https://script.google.com/macros/s/AKfycbyYwQOsNh9VEp_OT3K3XZzffefqvoHypkqbPu2uFpO-ZBHKBghkDvtpvrSlSwhLepwh2w/exec", {
-            method: "POST",
-            body: data
-        })
-        .then(res => res.text())
-        .then(response => {
-            alert("تم استلام بياناتك بنجاح! شكراً لانضمامك إلينا.");
+        try {
+            await fetch(scriptURL, { method: 'POST', body: new FormData(form)});
+            alert("تم تسجيل بياناتك في الجدول بنجاح!");
             form.reset();
-            whereInput.style.display = 'none';
-        })
-        .catch(err => {
-            alert("حدث خطأ أثناء الإرسال، يرجى التحقق من اتصالك بالإنترنت.");
-            console.error(err);
-        })
-        .finally(() => {
+        } catch (error) {
+            alert("حدث خطأ، حاول مرة أخرى.");
+        } finally {
             btn.disabled = false;
-            btn.innerText = "تسجيل الآن";
-        });
-    });
+            btn.innerText = "إرسال البيانات";
+        }
+    };
 </script>
-
 </body>
 </html>
