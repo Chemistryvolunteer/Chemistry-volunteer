@@ -4,51 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تسجيل التطوع – فريق أثر كيميائي</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
 <style>
-body {
-  margin: 0;
-  font-family: 'Cairo', Tahoma, Arial, sans-serif;
-  background: linear-gradient(to bottom right, #1e3a5f, #2c7a7b);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.container {
-  background: rgba(255,255,255,0.95);
-  padding: 30px 25px;
-  border-radius: 15px;
-  max-width: 600px;
-  width: 100%;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  text-align: center;
-}
-h1 { color: #1e3a5f; margin-bottom: 10px; font-size: 26px; }
-p { color: #555; line-height: 1.6; font-size: 15px; margin-bottom: 25px; }
-input, select, textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-  box-sizing: border-box;
-}
-textarea { resize: vertical; min-height: 80px; }
-.btn-submit {
-  background: #2c7a7b;
-  color: #fff;
-  padding: 14px 0;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  width: 100%;
-  transition: 0.3s;
-}
-.btn-submit:hover { background: #1e5a5c; }
-footer { color: #777; font-size: 13px; margin-top: 20px; }
+body { font-family: Tahoma, Arial, sans-serif; background:#eef2f5; display:flex; justify-content:center; align-items:center; min-height:100vh; margin:0;}
+.container { background:#fff; padding:25px; border-radius:12px; max-width:600px; width:100%; box-shadow:0 10px 25px rgba(0,0,0,0.2); text-align:center;}
+input, select, textarea { width:100%; padding:10px; margin:6px 0; border-radius:8px; border:1px solid #ccc; box-sizing:border-box;}
+textarea { min-height:80px; resize:vertical;}
+button { width:100%; padding:12px; background:#2c7a7b; color:#fff; border:none; border-radius:10px; cursor:pointer; margin-top:10px;}
+button:hover { background:#1e5a5c;}
+footer { font-size:13px; color:#777; margin-top:15px;}
 </style>
 </head>
 <body>
@@ -58,7 +21,6 @@ footer { color: #777; font-size: 13px; margin-top: 20px; }
   <p>نرحب بكل من يؤمن بأن المبادرة تصنع الأثر. يرجى ملء الاستمارة بدقة وسيتم التواصل مع المقبولين لاحقًا.</p>
 
   <form id="استمارة_الفريق">
-    <!-- المعلومات الشخصية -->
     <input type="text" name="الاسم_الكامل" placeholder="الاسم الكامل" required>
     <input type="number" name="العمر" placeholder="العمر" required>
     <input type="tel" name="رقم_الهاتف" placeholder="رقم الهاتف" required>
@@ -67,7 +29,6 @@ footer { color: #777; font-size: 13px; margin-top: 20px; }
     <input type="text" name="القضاء" placeholder="القضاء" required>
     <input type="text" name="الضيف" placeholder="الضيف" required>
 
-    <!-- المعلومات المهنية -->
     <select name="نوع_العمل" required>
       <option value="">نوع العمل</option>
       <option value="موظف">موظف</option>
@@ -86,7 +47,6 @@ footer { color: #777; font-size: 13px; margin-top: 20px; }
     <input type="text" name="القسم" placeholder="القسم">
     <input type="text" name="التخصص" placeholder="التخصص">
 
-    <!-- التطوع -->
     <select name="متطوع_سابق" required>
       <option value="">هل كنت متطوع سابقًا؟</option>
       <option value="نعم">نعم</option>
@@ -101,9 +61,35 @@ footer { color: #777; font-size: 13px; margin-top: 20px; }
       <option value="على مدار">على مدار</option>
     </select>
 
-    <!-- التواصل -->
     <input type="text" name="التواصل" placeholder="البريد أو الهاتف للتواصل" required>
 
+    <button type="submit">تسجيل الآن</button>
+  </form>
+
+  <footer>© فريق أثر كيميائي – محافظة ديالى</footer>
+</div>
+
+<script>
+const form = document.getElementById('استمارة_الفريق');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const data = new FormData(form);
+
+  fetch("https://script.google.com/macros/s/AKfycbwG_YocppPbZMDkQ3pvIPpNrdYT1nd7mnTfhcFGi5vE5INaqhIo1eIUknliSZSnDI1T6Q/exec", {
+    method: "POST",
+    body: data
+  })
+  .then(res => res.text())
+  .then(response => {
+    alert(response);
+    form.reset();
+  })
+  .catch(err => alert("حصل خطأ، حاول لاحقاً."));
+});
+</script>
+
+</body>
+</html>
     <button type="submit" class="btn-submit">تسجيل الآن</button>
   </form>
 
