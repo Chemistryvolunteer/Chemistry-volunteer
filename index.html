@@ -1,116 +1,126 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تسجيل التطوع – فريق أثر كيميائي</title>
-<style>
-body { font-family: Tahoma, Arial, sans-serif; background:#eef2f5; display:flex; justify-content:center; align-items:center; min-height:100vh; margin:0;}
-.container { background:#fff; padding:25px; border-radius:12px; max-width:600px; width:100%; box-shadow:0 10px 25px rgba(0,0,0,0.2); text-align:center;}
-input, select, textarea { width:100%; padding:10px; margin:6px 0; border-radius:8px; border:1px solid #ccc; box-sizing:border-box;}
-textarea { min-height:80px; resize:vertical;}
-button { width:100%; padding:12px; background:#2c7a7b; color:#fff; border:none; border-radius:10px; cursor:pointer; margin-top:10px;}
-button:hover { background:#1e5a5c;}
-footer { font-size:13px; color:#777; margin-top:15px;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل التطوع – فريق أثر كيميائي</title>
+    <style>
+        :root {
+            --primary-color: #2c7a7b;
+            --hover-color: #1e5a5c;
+            --bg-color: #eef2f5;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-color); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 20px 0; }
+        .container { background: #fff; padding: 30px; border-radius: 15px; max-width: 550px; width: 90%; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: var(--primary-color); margin-bottom: 10px; font-size: 24px; }
+        p { color: #555; font-size: 15px; margin-bottom: 25px; line-height: 1.6; }
+        
+        .form-group { text-align: right; margin-bottom: 15px; }
+        input, select, textarea { 
+            width: 100%; padding: 12px; margin-top: 5px; border-radius: 8px; 
+            border: 1px solid #ddd; box-sizing: border-box; transition: 0.3s;
+            font-size: 14px;
+        }
+        input:focus, select:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 5px rgba(44, 122, 123, 0.2); }
+        
+        button { 
+            width: 100%; padding: 14px; background: var(--primary-color); color: #fff; 
+            border: none; border-radius: 10px; cursor: pointer; margin-top: 15px; 
+            font-size: 16px; font-weight: bold; transition: 0.3s;
+        }
+        button:hover { background: var(--hover-color); }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+        
+        footer { font-size: 13px; color: #888; margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; }
+    </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>تسجيل التطوع – فريق أثر كيميائي</h1>
-  <p>نرحب بكل من يؤمن بأن المبادرة تصنع الأثر. يرجى ملء الاستمارة بدقة وسيتم التواصل مع المقبولين لاحقًا.</p>
+    <h1>تسجيل التطوع</h1>
+    <h3>فريق أثر كيميائي</h3>
+    <p>نرحب بكل من يؤمن بأن المبادرة تصنع الأثر. يرجى ملء الاستمارة بدقة وسيتم التواصل معكم لاحقاً.</p>
 
-  <form id="استمارة_الفريق">
-    <input type="text" name="الاسم_الكامل" placeholder="الاسم الكامل" required>
-    <input type="number" name="العمر" placeholder="العمر" required>
-    <input type="tel" name="رقم_الهاتف" placeholder="رقم الهاتف" required>
-    <input type="text" name="السكن" placeholder="السكن" required>
-    <input type="text" name="المحافظة" placeholder="المحافظة" required>
-    <input type="text" name="القضاء" placeholder="القضاء" required>
-    <input type="text" name="الضيف" placeholder="الضيف" required>
+    <form id="volunteerForm">
+        <input type="text" name="fullName" placeholder="الاسم الكامل" required>
+        <input type="number" name="age" placeholder="العمر" required>
+        <input type="tel" name="phone" placeholder="رقم الهاتف (واتساب)" required>
+        
+        <div style="display: flex; gap: 10px;">
+            <input type="text" name="city" placeholder="المحافظة" required>
+            <input type="text" name="district" placeholder="القضاء" required>
+        </div>
+        
+        <input type="text" name="address" placeholder="عنوان السكن بالتفصيل" required>
 
-    <select name="نوع_العمل" required>
-      <option value="">نوع العمل</option>
-      <option value="موظف">موظف</option>
-      <option value="عاطل عن العمل">عاطل عن العمل</option>
-      <option value="طالب">طالب</option>
-      <option value="خريج">خريج</option>
-    </select>
+        <select name="jobStatus" required>
+            <option value="">الحالة العملية</option>
+            <option value="موظف">موظف</option>
+            <option value="عاطل عن العمل">عاطل عن العمل</option>
+            <option value="طالب">طالب</option>
+            <option value="خريج">خريج</option>
+        </select>
 
-    <select name="نوع_الدراسة" required>
-      <option value="">نوع الدراسة</option>
-      <option value="طالب">طالب</option>
-      <option value="خريج">خريج</option>
-    </select>
+        <input type="text" name="specialization" placeholder="الكلية / المعهد والتخصص">
 
-    <input type="text" name="الكلية_المعهد" placeholder="الكلية أو المعهد">
-    <input type="text" name="القسم" placeholder="القسم">
-    <input type="text" name="التخصص" placeholder="التخصص">
+        <select name="prevVolunteer" id="prevVolunteer" required>
+            <option value="">هل لديك خبرة تطوعية سابقة؟</option>
+            <option value="نعم">نعم</option>
+            <option value="لا">لا</option>
+        </select>
+        
+        <input type="text" name="whereVolunteered" id="whereVolunteered" placeholder="أين تطوعت سابقاً؟" style="display:none;">
 
-    <select name="متطوع_سابق" required>
-      <option value="">هل كنت متطوع سابقًا؟</option>
-      <option value="نعم">نعم</option>
-      <option value="لا">لا</option>
-    </select>
-    <input type="text" name="اين_تطوعت" placeholder="إذا نعم، أين تطوعت">
+        <select name="duration" required>
+            <option value="">مدة التطوع المفضلة</option>
+            <option value="يوم واحد">يوم واحد في الأسبوع</option>
+            <option value="يومان">يومان في الأسبوع</option>
+            <option value="حسب الحاجة">على مدار الشهر (حسب الحاجة)</option>
+        </select>
 
-    <select name="مدة_التطوع" required>
-      <option value="">مدة التطوع التي ترغب بها</option>
-      <option value="يوم واحد">يوم واحد</option>
-      <option value="يومان في الأسبوع">يومان في الأسبوع</option>
-      <option value="على مدار">على مدار</option>
-    </select>
+        <button type="submit" id="submitBtn">إرسال البيانات</button>
+    </form>
 
-    <input type="text" name="التواصل" placeholder="البريد أو الهاتف للتواصل" required>
-
-    <button type="submit">تسجيل الآن</button>
-  </form>
-
-  <footer>© فريق أثر كيميائي – محافظة ديالى</footer>
+    <footer>© جميع الحقوق محفوظة لـ فريق أثر كيميائي – ديالى</footer>
 </div>
 
 <script>
-const form = document.getElementById('استمارة_الفريق');
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  const data = new FormData(form);
+    const form = document.getElementById('volunteerForm');
+    const btn = document.getElementById('submitBtn');
+    const prevVolSelect = document.getElementById('prevVolunteer');
+    const whereInput = document.getElementById('whereVolunteered');
 
-  fetch("https://script.google.com/macros/s/AKfycbwG_YocppPbZMDkQ3pvIPpNrdYT1nd7mnTfhcFGi5vE5INaqhIo1eIUknliSZSnDI1T6Q/exec", {
-    method: "POST",
-    body: data
-  })
-  .then(res => res.text())
-  .then(response => {
-    alert(response);  // هذه الرسالة تظهر بعد النجاح
-    form.reset();
-  })
-  .catch(err => alert("حصل خطأ، حاول لاحقاً."));
-});
-</script>
+    // إظهار حقل "أين تطوعت" فقط إذا اختار نعم
+    prevVolSelect.addEventListener('change', function() {
+        whereInput.style.display = this.value === 'نعم' ? 'block' : 'none';
+    });
 
-</body>
-</html>    method: "POST",
-    body: data
-  })
-  .then(res => res.text())
-  .then(response => {
-    alert(response);
-    form.reset();
-  })
-  .catch(err => alert("حصل خطأ، حاول لاحقاً."));
-});
-</script>
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerText = "جاري الإرسال...";
 
-</body>
-</html>    body: data
-  })
-  .then(res => res.text())
-  .then(response => {
-    alert(response);
-    form.reset();
-  })
-  .catch(err => alert("حصل خطأ، حاول لاحقاً."));
-});
+        const data = new FormData(form);
+
+        fetch("رابط_الاسكريبت_الخاص_بك_هنا", {
+            method: "POST",
+            body: data
+        })
+        .then(res => res.text())
+        .then(response => {
+            alert("تم استلام بياناتك بنجاح! شكراً لانضمامك إلينا.");
+            form.reset();
+            whereInput.style.display = 'none';
+        })
+        .catch(err => {
+            alert("حدث خطأ أثناء الإرسال، يرجى التحقق من اتصالك بالإنترنت.");
+            console.error(err);
+        })
+        .finally(() => {
+            btn.disabled = false;
+            btn.innerText = "تسجيل الآن";
+        });
+    });
 </script>
 
 </body>
