@@ -80,9 +80,9 @@
     <input type="tel" name="رقم_الهاتف" placeholder="رقم الهاتف" required>
     <select name="الفئة_العمرية" required>
       <option value="">اختر الفئة العمرية</option>
-      <option value="18-25">18-25</option>
-      <option value="26-35">26-35</option>
-      <option value="36-50">36-50</option>
+      <option value="18-25">18‑25</option>
+      <option value="26-35">26‑35</option>
+      <option value="36-50">36‑50</option>
     </select>
     <textarea name="الخبرات" placeholder="خبرات أو مهارات ترغب بالمساهمة بها" required></textarea>
     <button type="submit" class="btn-submit">تسجيل الآن</button>
@@ -104,6 +104,13 @@
     .then(response => {
       alert(response);
       form.reset();
+    })
+    .catch(err => alert("حصل خطأ، حاول لاحقاً."));
+  });
+</script>
+
+</body>
+</html>      form.reset();
     })
     .catch(err => alert("حصل خطأ، حاول لاحقاً."));
   });
