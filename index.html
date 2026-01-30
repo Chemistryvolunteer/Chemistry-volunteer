@@ -2,31 +2,54 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>استمارة التسجيل – فريق ChemImpact</title>
+  <title>استمارة التسجيل – فريق أثر كيميائي</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: Tahoma, Arial, sans-serif;
+      font-family: 'Cairo', Tahoma, Arial, sans-serif;
       background: url("bg.png") no-repeat center center fixed;
       background-size: cover;
     }
 
-    /* طبقة تعتيم */
     .overlay {
-      background: rgba(0, 0, 0, 0.55);
+      background: rgba(0,0,0,0.55);
       min-height: 100vh;
       padding: 20px;
     }
 
+    .header {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 25px;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .header span {
+      font-size: 14px;
+      color: #ddd;
+    }
+
     .container {
       max-width: 900px;
-      margin: 40px auto;
-      background: #ffffff;
+      margin: auto;
+      background: #fff;
       border-radius: 12px;
       padding: 25px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 15px;
+      max-width: 160px;
     }
 
     h1 {
@@ -39,8 +62,17 @@
       text-align: center;
       color: #555;
       line-height: 1.8;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       font-size: 15px;
+    }
+
+    .note {
+      background: #f1f5f9;
+      border-right: 4px solid #1e3a5f;
+      padding: 12px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #333;
     }
 
     iframe {
@@ -58,33 +90,46 @@
     }
 
     @media (max-width: 600px) {
-      iframe {
-        height: 1350px;
-      }
+      iframe { height: 1350px; }
     }
   </style>
 </head>
 
 <body>
   <div class="overlay">
+
+    <div class="header">
+      <h2>فريق ChemImpact التطوعي</h2>
+      <span>محافظة ديالى</span>
+    </div>
+
     <div class="container">
-      <h1>استمارة التسجيل في فريق ChemImpact</h1>
+
+      <img src="ph.png" alt="شعار فريق أثر كيميائي" class="logo">
+
+      <h1>استمارة الانضمام إلى فريق أثر كيميائي</h1>
 
       <p>
-        نرحب بكل من يؤمن بأن العطاء مسؤولية،  
+        نرحب بكل من يؤمن بأن العطاء مسؤولية  
         وبأن المبادرة تصنع الأثر.  
-        يرجى تعبئة الاستمارة بدقة وسيتم التواصل مع المقبولين لاحقًا.
+        يرجى تعبئة الاستمارة بدقة.
       </p>
 
-      <iframe 
+      <div class="note">
+        📌 ملاحظة: سيتم التواصل مع المقبولين فقط، يرجى التأكد من صحة المعلومات.
+      </div>
+
+      <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSdM4qCvza9NwIpwnmBFXqoSuWPJrdyi9L7hBFfZVBQMoTIXwA/viewform?embedded=true">
         جارٍ التحميل…
       </iframe>
+
     </div>
 
     <footer>
-      © فريق ChemImpact – محافظة ديالى
+      © فريق أثر كيميائي – محافظة ديالى
     </footer>
+
   </div>
 </body>
 </html>
