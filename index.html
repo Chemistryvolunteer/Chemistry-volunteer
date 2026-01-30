@@ -20,29 +20,19 @@
     background: rgba(255,255,255,0.95);
     padding: 30px 25px;
     border-radius: 15px;
-    max-width: 500px;
+    max-width: 550px;
     width: 100%;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     text-align: center;
   }
 
-  h1 {
-    color: #1e3a5f;
-    margin-bottom: 15px;
-    font-size: 26px;
-  }
-
-  p {
-    color: #555;
-    line-height: 1.6;
-    font-size: 15px;
-    margin-bottom: 25px;
-  }
+  h1 { color: #1e3a5f; margin-bottom: 10px; font-size: 26px; }
+  p { color: #555; line-height: 1.6; font-size: 15px; margin-bottom: 25px; }
 
   input, select, textarea {
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
+    margin: 8px 0;
     border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 15px;
@@ -59,10 +49,9 @@
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
     width: 100%;
+    transition: 0.3s;
   }
-
   .btn-submit:hover { background: #1e5a5c; }
 
   footer { color: #777; font-size: 13px; margin-top: 20px; }
@@ -76,15 +65,37 @@
 
   <form id="استمارة_الفريق">
     <input type="text" name="الاسم_الكامل" placeholder="الاسم الكامل" required>
-    <input type="email" name="البريد_الإلكتروني" placeholder="البريد الإلكتروني" required>
-    <input type="tel" name="رقم_الهاتف" placeholder="رقم الهاتف" required>
-    <select name="الفئة_العمرية" required>
-      <option value="">اختر الفئة العمرية</option>
-      <option value="18-25">18‑25</option>
-      <option value="26-35">26‑35</option>
-      <option value="36-50">36‑50</option>
+    <input type="text" name="اسم_الأم" placeholder="اسم الأم" required>
+    <select name="الجنس" required>
+      <option value="">اختر الجنس</option>
+      <option value="ذكر">ذكر</option>
+      <option value="أنثى">أنثى</option>
     </select>
-    <textarea name="الخبرات" placeholder="خبرات أو مهارات ترغب بالمساهمة بها" required></textarea>
+    <input type="tel" name="رقم_الهاتف" placeholder="رقم الهاتف" required>
+    <select name="نوع_الدراسة" required>
+      <option value="">اختر نوع الدراسة</option>
+      <option value="طالب">طالب</option>
+      <option value="خريج">خريج</option>
+    </select>
+    <textarea name="تفاصيل" placeholder="تفاصيل إضافية" required></textarea>
+    <select name="متطوع_سابق" required>
+      <option value="">هل كنت متطوع سابقًا؟</option>
+      <option value="نعم">نعم</option>
+      <option value="لا">لا</option>
+    </select>
+    <select name="مدة_التطوع" required>
+      <option value="">مدة التطوع التي ترغب بها</option>
+      <option value="يوم واحد">يوم واحد</option>
+      <option value="يومين في الأسبوع">يومين في الأسبوع</option>
+      <option value="على مدار">على مدار</option>
+    </select>
+    <input type="text" name="التواصل" placeholder="البريد أو الهاتف للتواصل" required>
+    <select name="نوع_العمل" required>
+      <option value="">نوع العمل</option>
+      <option value="طالب">طالب</option>
+      <option value="موظف">موظف</option>
+      <option value="عاطل عن العمل">عاطل عن العمل</option>
+    </select>
     <button type="submit" class="btn-submit">تسجيل الآن</button>
   </form>
 
@@ -92,18 +103,25 @@
 </div>
 
 <script>
-  const form = document.getElementById('استمارة_الفريق');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const data = new FormData(form);
-    fetch("https://script.google.com/macros/s/AKfycbwYTLooAgPmxjFFoqThKMQks7Knf3Sqw31tC7hWloifEhBe2WyO4egIXq5XkDNcyuU2cg/exec", {
-      method: "POST",
-      body: data
-    })
-    .then(res => res.text())
-    .then(response => {
-      alert(response);
-      form.reset();
+const form = document.getElementById('استمارة_الفريق');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const data = new FormData(form);
+  fetch("https://script.google.com/macros/s/AKfycbwYTLooAgPmxjFFoqThKMQks7Knf3Sqw31tC7hWloifEhBe2WyO4egIXq5XkDNcyuU2cg/exec", {
+    method: "POST",
+    body: data
+  })
+  .then(res => res.text())
+  .then(response => {
+    alert(response); // رسالة نجاح
+    form.reset();     // تفريغ الاستمارة بعد الإرسال
+  })
+  .catch(err => alert("حصل خطأ، حاول لاحقاً."));
+});
+</script>
+
+</body>
+</html>      form.reset();
     })
     .catch(err => alert("حصل خطأ، حاول لاحقاً."));
   });
